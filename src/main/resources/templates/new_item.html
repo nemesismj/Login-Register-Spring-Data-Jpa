@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css}" />
+	<script th:src="@{/webjars/bootstrap/4.1.0/js/bootstrap.min.js}"></script>
+<title>Create New Item</title>
+</head>
+<style>
+	.registerbtn {
+		background-color: lightseagreen;
+		color: white;
+		padding: 16px 200px;
+		margin: 8px 0;
+		border: none;
+		cursor: pointer;
+		width: 30%;
+		opacity: 0.9;
+	}
+
+	.registerbtn:hover {
+		opacity: 1;
+	}
+</style>
+<body>
+	<div align="center">
+		<h1>Create New Item</h1>
+		<br />
+		<form action="#" th:action="@{/save}" th:object="${item}"
+			method="post">
+
+			<table class="table" border="0" cellpadding="10">
+				<tr>
+					<td>Item Name:</td>
+					<td scope="row"><input type="text" th:field="*{name}" /></td>
+				</tr>
+				<tr>
+					<td>Brand:</td>
+					<td scope="row"><input type="text" th:field="*{brand}" /></td>
+				</tr>
+				<tr>
+					<td>Made In:</td>
+					<td scope="row"><input type="text" th:field="*{madein}" /></td>
+				</tr>
+				<tr>
+					<td>Price:</td>
+					<td scope="row"><input type="text" th:field="*{price}" /></td>
+				</tr>								
+				<tr>
+					<td colspan="2"><button class="registerbtn" type="submit">Save</button> </td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

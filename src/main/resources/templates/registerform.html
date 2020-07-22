@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    padding: 16px;
+    background-color: white;
+}
+
+input[type=text], input[type=password] {
+    width: 30%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+.registerbtn {
+    background-color: #523c86;
+    color: white;
+    padding: 16px 200px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    opacity: 0.9;
+}
+
+.registerbtn:hover {
+    opacity: 1;
+}
+
+a {
+    color: dodgerblue;
+}
+
+.signin {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+/* Removes the clear button from date inputs */
+input[type="date"]::-webkit-clear-button {
+    display: none;
+}
+
+/* Removes the spin button */
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+/* Always display the drop down caret */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: #2c3e50;
+}
+
+/* A few custom styles for date inputs */
+input[type="date"] {
+    appearance: none;
+    -webkit-appearance: none;
+    color: #95a5a6;
+    font-family: "Helvetica", arial, sans-serif;
+    font-size: 18px;
+    border:1px solid #ecf0f1;
+    background:#ecf0f1;
+    padding:5px;
+    display: inline-block !important;
+    visibility: visible !important;
+}
+
+input[type="date"], focus {
+    color: #95a5a6;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+</style>
+    <title>MyWall</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css}" />
+    <script th:src="@{/webjars/bootstrap/4.1.0/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="container">
+    <form th:action="@{/register}" th:object="${user}" th:method="post">
+        <div class="container">
+            <h1>Register Page</h1>
+            <p>Fill all blanks</p>
+            <hr>
+
+            <label><b>Username</b></label><br>
+            <input type="text" placeholder="Username is your login" name="name" required th:field="*{username}"><br>
+
+            <label><b>Email</b></label><br>
+            <input type="text" placeholder="example@example.com" name="email" required th:field="*{email}"><br>
+
+            <label><b>First name</b></label><br>
+            <input type="text" placeholder="First name" name="firstname" required th:field="*{fname}"><br>
+
+            <label><b>Last name</b></label><br>
+            <input type="text" placeholder="Last name" name="lastname" required th:field="*{lname}"><br>
+
+            <label><b>Password</b></label><br>
+            <input type="password"  name="psw" required th:field="*{password}"><br>
+
+            <label><b>Repeat password</b></label><br>
+            <input type="password" name="psw-repeat" required th:field="*{repeatedPassword}"><br>
+
+            <hr>
+
+            <button type="submit" class="registerbtn">Register</button>
+        </div>
+
+        <div class="container signin">
+            <p>Already registered?  <a href="/login">Login here</a>.</p>
+        </div>
+    </form>
+</div>
+</body>
+</html>
